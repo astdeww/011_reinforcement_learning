@@ -62,3 +62,14 @@ Sometimes, when he is Energetic, he wants to do a workout. When he exercises in 
 
 With the above information, we can train an agent aimed at helping Adam find the best policy to maximize his rewards over time. This agent will undertake a Markov Decision Process.
 However, before we can do that, we need to know how to compute the cumulative reward when an action is taken in one state. That is to say, we must be able to estimate the state value.
+
+## Discounted Reward
+Reinforcement Learning is a multi-decision process. Unlike the “one instance, one prediction” model of supervised learning, an RL agent’s target is to maximize the cumulative rewards of a series of decisions — not simply the immediate reward from one decision. It requires the agent to look into the future while simultaneously collecting current rewards. In Adam’s example above, future rewards are as important as current rewards. But in the CartPole game(check the notebook), surviving in the present is more important than anything else. The  future rewards can be valued differently depending on the scenario, we need a mechanism to discount the importance of future rewards at different time steps.
+![image](https://github.com/astdeww/011_reinforcement_learning/assets/38376016/a1414175-faa0-499b-8431-ba7c00fb681b)
+
+The above symbol for a discounted rate or factor is the key to this mechanism. The rewards computed by it are referred to as _discounted rewards_.
+![image](https://github.com/astdeww/011_reinforcement_learning/assets/38376016/8cc093a9-3077-473b-ad33-db9097b03851)
+
+Consider the information above. If the discount rate is close to 0, future rewards won’t count for much in comparison to immediate rewards. In contrast, if the discount rate is close to 1, rewards that are far in the future will be almost as important as immediate rewards.
+
+In short, _discounted reward how we estimate the value of a state._
